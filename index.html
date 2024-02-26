@@ -34,6 +34,7 @@
           aria-label="Sizing example input"
           aria-describedby="petName"
           id="petName"
+          required
         />
       </div>
 
@@ -45,17 +46,18 @@
           aria-label="Sizing example input"
           aria-describedby="ownerName"
           id="ownerName"
+          required
         />
       </div>
 
-      <select class="orm-select form-select-lg mb-3" aria-label="Small select example" id="species">
+      <select class="form-select-mb mb-3" aria-label="Small select example" id="species" required>
         <option selected>Seleziona la specie</option>
         <option value="1">Cane</option>
         <option value="2">Gatto</option>
         <option value="3">Coniglio</option>
         <option value="4">Criceto</option>
       </select>
-      <select class="orm-select form-select-lg mb-3" aria-label="Small select example" id="breed">
+      <select class="form-select-mb mb-3" aria-label="Small select example" id="breed" required>
         <option selected>Seleziona la razza</option>
         <option value="1">Labrador</option>
         <option value="2">Maine Coon</option>
@@ -64,6 +66,8 @@
       </select>
       <button type="submit" class="btn btn-secondary">Invia</button>
     </form>
+
+    <ul id="text"></ul>
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

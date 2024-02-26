@@ -25,22 +25,54 @@ console.log(User.olderAge(userX, userY));
 console.log(User.olderAge(userY, userJ));
 
 // ESERCIZIO 2
+
+class Pet {
+  constructor(petName, onwerName, species, breed) {
+    this.petName = petName;
+    this.onwerName = onwerName;
+    this.species = species;
+    this.breed = breed;
+  }
+  //   methodThis() {
+  //     let pet = `Ciao mi chiamo ${this.petName} sono un ${this.species} di razza ${this.breed} e il mio padrone è ${this.onwerName}`;
+  //     return console.log(pet);
+  //   }
+
+  static sameonwerName(onwerNameA, onwerNameB) {
+    return onwerNameA.onwerName === onwerNameB.onwerName;
+  }
+}
+
 const formNode = document.querySelector("form");
+const ul = document.getElementById("text");
+
+let animals = [];
 
 formNode.onsubmit = function (e) {
   e.preventDefault();
 
-  const petName = document.getElementById("petName");
+  let petName = document.getElementById("petName").value;
   console.log(petName);
 
-  const onwerName = document.getElementById("onwerName");
-  console.log(petName.item);
-  const species = document.querySelectorAll("species");
-  console.log(species.value);
-  const breed = document.querySelectorAll("breed");
-  console.log(breed);
+  let onwerName = document.getElementById("ownerName").value;
+  console.log(onwerName);
 
-  class Pet {
-    constructor(petName, onwerName, species, breed) {}
-  }
+  const allSpecies = document.getElementById("species");
+  let selectedIndexSpecies = allSpecies.selectedIndex;
+  let species = allSpecies.options[selectedIndexSpecies].text;
+  console.log(species);
+
+  const allBreed = document.getElementById("breed");
+  let selectedIndexBreed = allBreed.selectedIndex;
+  let breed = allBreed.options[selectedIndexBreed].text;
+  console.dir(breed);
+
+  let animal = new Pet(petName, onwerName, species, breed);
+  console.log(animal);
+  animals.push(animal);
+  console.log(animals);
+
+  const li = document.createElement("li");
+  li.innerText = `Ciao mi chiamo ${animal.petName} sono un ${animal.species} di razza ${animal.breed} e il mio padrone è ${animal.onwerName}`;
+  ul.appendChild(li);
 };
